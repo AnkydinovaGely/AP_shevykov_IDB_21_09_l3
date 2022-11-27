@@ -5,9 +5,13 @@ def main(path):
     with open(path, 'r') as html:
         string = html.readlines()
         for i in string:
-            out = re.findall('href=\"\S*\"', i)
+            # поиск длинных ссылок
+            #out = re.findall(r'href="\S{1,}"', i)
+            # поиск ссылок длинной до 512 символов
+            out = re.findall(r'href="\S{1,512}"', i)
             if out != []:
-                print(*out)
+                for item in out:
+                    print(item, end='\n')
 
 #input files:
 # 'test1', 'test2'
