@@ -6,9 +6,9 @@ def main(path):
         string = html.readlines()
         for i in string:
             # поиск длинных ссылок
-            #out = re.findall(r'href="\S{1,}"', i)
+            out = re.findall(r'href="\S{1,}"', i)
             # поиск ссылок длинной до 512 символов
-            out = re.findall(r'href="\S{1,512}"', i)
+            # out = re.findall(r'href="\S{1,512}"', i)
             if out != []:
                 for item in out:
                     print(item, end='\n')
